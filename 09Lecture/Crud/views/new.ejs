@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Student</title>
+</head>
+<body>
+    <h1>Add New Studets</h1>
+
+    <form action="/students" method="post">
+        <input type="text" name="name" placeholder="Enter name" required>
+      
+        <input type="number" name="age" placeholder="Enter age" required min="1">
+      
+        <!-- <select name="gender" required>
+          <option value="">Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select> -->
+        <label>
+            <input type="radio" name="gender" value="Male" required> Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="Female"> Female
+          </label>
+      
+        <button>Add</button>
+      </form>
+      
+    <a href="/students">Back</a>
+
+</body>
+</html>
