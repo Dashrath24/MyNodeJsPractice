@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Students</h1>
+    <div>
+        <% contacts.forEach(contact=>{
+            %>
+            <div>
+                <p> <strong>Name</strong><%= contact.contactName %></p>
+                <p> <strong>phone</strong><%= contact.phone %></p>
+                <p> <strong>email</strong><%= contact.email %></p>
+                <p> <strong>tag</strong><%= contact.tag %></p>
+                <p> <strong>lastContacted</strong><%= contact.lastContacted %></p>
+            </div>
+             <%
+        })
+         %>
+    </div>
+  
+        <input type="text" name="contactName" placeholder="Enter your name" required>
+        <input type="email" name="email" placeholder="enter your email " required>
+        <input type="number" name="number" placeholder="enter your number " required>
+        <input type="text" name="text" placeholder="enter tag" required>
+        <input type="date" name="lastContacted" required>
+        <button type="submit">add</button>rm>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Student</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Style for the page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .input-group,
+    .gender-group,
+    .password-wrapper {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button[type="button"].toggle-eye {
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      right: 10px;
+      top: 18px;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: bold;
+    }
+
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+
+    .gender-group label {
+      margin-right: 20px;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+    
+    .custom-select-wrapper {
+      position: relative;
+      width: 100%;
+      /* Match other input widths */
+      font-family: Arial, sans-serif;
+    }
+
+    .custom-select {
+      position: relative;
+      width: 100%;
+    }
+
+    .custom-select input {
+      width: 100%;
+      /* Ensure full width */
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+      box-sizing: border-box;
+    }
+
+    .options {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      background: white;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      z-index: 10;
+      display: none;
+    }
+
+    .option {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      background-color: #f0f0f0;
+    }
+
+    .password-wrapper {
+      position: relative;
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .password-wrapper input {
+      width: 100%;
+      padding: 10px 40px 10px 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .toggle-eye {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #888;
+      font-size: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    /* Media Queries for responsiveness */
+    @media screen and (max-width: 600px) {
+      .card {
+        padding: 20px;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Edit Student</h1>
+    <form action="/edit/<%= student._id %>" method="post">
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="<%= student.name %>" required>
+      </div>
+
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value="<%= student.email %>" required>
+      </div>
+
+      <div class="custom-select-wrapper">
+        <div class="custom-select">
+          <input type="text" id="courseSearch" placeholder="Search or select a course" onfocus="showOptions()"
+            value="<%= student.course %>">
+          <div class="options" id="courseOptions">
+            <div class="option">Web Development Basics</div>
+            <div class="option">UI/UX Design with Figma & HTML/CSS</div>
+            <div class="option">Frontend Development with React</div>
+            <div class="option">Backend Development with Node.js</div>
+            <div class="option">Full Stack Web Development</div>
+            <div class="option">Python Programming</div>
+            <div class="option">Java for Beginners</div>
+            <div class="option">C++ Fundamentals</div>
+            <div class="option">SQL & Database Management</div>
+            <div class="option">Data Structures and Algorithms</div>
+            <div class="option">Mobile App Development</div>
+            <div class="option">Introduction to Machine Learning</div>
+            <div class="option">Cybersecurity Essentials</div>
+            <div class="option">DevOps and Cloud Computing</div>
+            <div class="option">Game Development with Unity</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" value="<%= student.age %>" required min="1" placeholder="Age">
+      </div>
+
+      <div class="gender-group">
+        <label>Gender</label>
+        <label>
+          <input type="radio" name="gender" value="Male" <%=student.gender==="Male" ? "checked" : "" %>> Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="Female" <%=student.gender==="Female" ? "checked" : "" %>> Female
+        </label>
+      </div>
+
+      <div class="password-wrapper">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter password"
+          value="<%= student.password %>" required />
+        <button type="button" class="toggle-eye" onclick="togglePassword()">
+          <i id="eyeIcon" class="fa-solid fa-eye"></i>
+        </button>
+      </div>
+
+      <button type="submit" class="submit-btn">Update</button>
+    </form>
+
+    <a href="/" class="back-btn">Back</a>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script>
+    function togglePassword() {
+      var passwordField = document.getElementById("password");
+      var eyeIcon = document.getElementById("eyeIcon");
+
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+      } else {
+        passwordField.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+      }
+    }
+  </script>
+</body>
+
+</html>

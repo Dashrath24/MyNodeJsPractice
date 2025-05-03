@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student List</title>
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .card {
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #007bff;
+      margin-right: 15px;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .password-wrapper {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .password-wrapper input {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      width: 70%;
+      outline: none;
+    }
+
+    .password-wrapper button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #007bff;
+      font-size: 20px;
+      margin-left: 10px;
+    }
+
+    .password-wrapper button:hover {
+      color: #0056b3;
+    }
+
+    .btn-add-student {
+      display: block;
+      width: 200px;
+      text-align: center;
+      background-color: #28a745;
+      color: #fff;
+      padding: 10px;
+      margin: 20px auto;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .btn-add-student:hover {
+      background-color: #218838;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <h1>All Students</h1>
+
+  <a href="/add" class="btn-add-student">Add New Student</a>
+
+  <div>
+    <% students.forEach(student => { %>
+      <div class="card">
+        <p><strong>Name:</strong> <%= student.name %></p>
+        <p><strong>Email:</strong> <%= student.email %></p>
+        <p><strong>Course:</strong> <%= student.course %></p>
+        <p><strong>Age:</strong> <%= student.age %></p>
+        <p><strong>Gender:</strong> <%= student.gender %></p>
+
+        <div class="password-wrapper">
+          <label for="student-password"><strong>Password:</strong></label>
+          <input type="password" id="student-password-<%= student._id %>" value="<%= student.password %>" readonly>
+          <button type="button" onclick="togglePassword('<%= student._id %>')">
+            <i id="eyeIcon-<%= student._id %>" class="fa-solid fa-eye"></i>
+          </button>
+        </div>
+
+        <div class="d-flex justify-content-start">
+          <a href="/edit/<%= student._id %>">Edit</a>
+          <a href="/delete/<%= student._id %>">Delete</a>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+
+  <script>
+    function togglePassword(studentId) {
+      const input = document.getElementById("student-password-" + studentId);
+      const icon = document.getElementById("eyeIcon-" + studentId);
+
+      if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+    }
+  </script>
+</body>
+
+</html>
