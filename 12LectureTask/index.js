@@ -21,13 +21,17 @@ app.get("/", async (req, res) => {
   res.render("home", { contacts });
 });
 //add new
-app.post("add", async (req, res) => {
+
+app.get("/add", (req, res) => {
+  res.render("add");
+});
+app.post("/add", async (req, res) => {
   const { contactName, phone, email, tag, lastContacted } = req.body;
   await Contact.create({ contactName, phone, email, tag, lastContacted });
   res.redirect("/");
 });
 //edit
-app.get("/edit:id", async (req, res) => {
+app.get("/edit/:id", async (req, res) => {
   const contact = await Contact.findById(req.params.id);
   res.render("edit", { contact });
 });
@@ -42,11 +46,11 @@ app.post("/edit/:id", async (req, res) => {
     lastContacted,
   });
   res.redirect("/");
-  //delet
-  app.get("delete/:id", async (req, res) => {
-    await Contact.findByIdAndDelete(req.params.id);
-    res.redirect("/");
-  });
+});
+//delet
+app.get("/delete/:id", async (req, res) => {
+  await Contact.findByIdAndDelete(req.params.id);
+  res.redirect("/");
 });
 //port
 app.listen(PORT, () => {
