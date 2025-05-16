@@ -98,7 +98,7 @@ const fs = require("fs");
 
 //04.Update/apend file
 
-// fs.appendFileSync("hiren.text", "\nhello we are updating file\n");
+fs.appendFileSync("hiren.text", "\nhello we are updating file\n");
 
 
 
