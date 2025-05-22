@@ -30,7 +30,7 @@ Use the fs and path modules to read HTML files from the file system and send the
 Every incoming request is logged into a data.txt file with a timestamp.
 
 # 📁 Folder Structure Example
-project/
+project/<br>
 │
 ├── index.html<br>
 ├── about.html<br>
