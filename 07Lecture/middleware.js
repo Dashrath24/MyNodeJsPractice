@@ -14,6 +14,6 @@ app.get('/',(req,res)=>{
 
 //server
 app.listen(PORT,()=>{
-    console.log("server is loaded");
+    console.log("server is loaded ",PORT);
     
 })

@@ -94,3 +94,5 @@ here data print
 1745477055063 : /favicon.ico New Request Recevied
 1745477076280 : /about New Request Recevied
 1745477076360 : /favicon.ico New Request Recevied
+1747904842089 : / New Request Recevied
+1747904842275 : /favicon.ico New Request Recevied

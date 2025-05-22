@@ -45,6 +45,6 @@ app.get('/', (req, res) => {
 // Server Start 
 
 app.listen(PORT, () => {
-    console.log("Serevr is Started");
+    console.log("Serevr is Started",PORT);
     
 })
