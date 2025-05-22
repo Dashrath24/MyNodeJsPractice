@@ -45,4 +45,4 @@ Navigate to the project folder in your terminal.
 
 Run the command:
 
-node app.js
+<!-- node app.js -->
