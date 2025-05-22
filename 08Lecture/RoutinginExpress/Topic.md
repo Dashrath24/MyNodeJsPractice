@@ -38,7 +38,7 @@ app.get("/product/:category/:productID", (req, res) => {<br>
 
 # ✅ Example:
 http://localhost:3000/product/electronics/123<br>
-🧾 Output: category:electronics,product id:123
+🧾 Output: category:electronics,product id:123 <br>
 
 4. Route with Query Parameters <br>
 
@@ -50,7 +50,7 @@ app.get(`/search`, (req, res) => {<br>
 
 # ✅ Example:
 http://localhost:3000/search?name=rahul&type=male<br>
-🧾 Output: serching for :rahul,in categpry:male
+🧾 Output: serching for :rahul,in categpry:male <br>
 
 5. POST Request<br>
 app.post("/contact", (req, res) => {<br>
