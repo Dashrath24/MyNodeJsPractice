@@ -22,45 +22,70 @@ Copy
 
 Edit
 res.sendFile(path.join(__dirname, "../05Lecture", "index.html"));
+
 ✅ 2. Route Parameters
+
 You can access dynamic parts of the URL using req.params:
 
 js
 
 Copy
 
+
 Edit
+
 app.get("/user/:name", (req, res) => {
+
   const userName = req.params.name;
+
   res.send(`User Name is : ${userName}`);
+
 });
-Example:
+
+>Example:
+
 http://localhost:7000/user/Dashrath
+
 📤 Output: User Name is : Dashrath
 
 ✅ 3. Query Parameters
+
 Using req.query to extract parameters from the URL query string.
 
 js
+
 Copy
+
 Edit
+
 app.get("/search", (req, res) => {
+
   const { q, cat, fname, lname } = req.query;
 
   if (q && cat) {
+
     res.send(`Namaste "${q}" in a category "${cat}"`);
+
   } else if (fname && lname) {
+
     res.send(`You are ${fname} ${lname}`);
   } else {
+
     res.send("Please provide valid query parameters.");
   }
+
 });
-Example 1:
+
+>Example 1:
+
 http://localhost:7000/search?q=javascript&cat=frontend
+
 📤 Output: Namaste "javascript" in a category "frontend"
 
-Example 2:
+>Example 2:
+
 http://localhost:7000/search?fname=Dashrath&lname=Gamit
+
 📤 Output: You are Dashrath Gamit
 
 🚀 Start the Server
@@ -68,7 +93,5 @@ http://localhost:7000/search?fname=Dashrath&lname=Gamit
 node index.js
 
 Server runs on:
-arduino
-Copy
-Edit
+
 http://localhost:7000/
