@@ -19,7 +19,7 @@ Using the http.createServer() method, we create a server that listens for incomi
 2. Route Handling
 The server checks the req.url and serves:
 
->A plain message (like “This is Home Page”) — OR
+>A plain message (like “This is Home Page”) — OR 
 
 >A full HTML file (like index.html)
 
@@ -32,9 +32,9 @@ Every incoming request is logged into a data.txt file with a timestamp.
 # 📁 Folder Structure Example
 project/
 │
-├── index.html
-├── about.html
-├── navbar.html
-├── 404.html
-├── server.js
+├── index.html<br>
+├── about.html<br>
+├── navbar.html<br>
+├── 404.html<br>
+├── server.js<br>
 └── data.txt
