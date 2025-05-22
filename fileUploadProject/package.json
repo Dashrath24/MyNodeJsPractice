@@ -11,8 +11,10 @@
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
+    "gridfs-stream": "^1.1.1",
     "mongoose": "^8.15.0",
     "multer": "^2.0.0",
+    "multer-gridfs-storage": "github:devconcept/multer-gridfs-storage",
     "nodemon": "^3.1.10"
   }
 }

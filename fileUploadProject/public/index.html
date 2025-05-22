@@ -1,14 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Uploading Form</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>File Upload</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+
+    .upload-container {
+      background-color: #fff;
+      color: #333;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      transition: border 0.3s ease;
+    }
+
+    .upload-container h2 {
+      margin-bottom: 1.5rem;
+      color: #4a5568;
+    }
+
+    .drop-zone {
+      border: 2px dashed #667eea;
+      padding: 2rem;
+      border-radius: 12px;
+      background-color: #f7f9fc;
+      color: #4a5568;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .drop-zone.dragover {
+      background-color: #ebf4ff;
+      border-color: #5a67d8;
+    }
+
+    .drop-zone p {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    #file-chosen {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #4a5568;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #48bb78;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #38a169;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <button type="submit">Upload</button>
+  <div class="upload-container">
+    <h2>Upload Your File</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+      <input type="file" name="file" id="fileInput" required />
+      <div class="drop-zone" id="dropZone">
+        <p>Drag & drop file here or click to select</p>
+      </div>
+      <br>
+      <span id="file-chosen">No file selected</span>
+      <br />
+      <div style="color: red;"> file must be in 100mb</div>
+      <button type="submit">Upload</button>
     </form>
+  </div>
+
+  <script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const fileChosen = document.getElementById('file-chosen');
+
+    // Trigger input file dialog when clicking on dropzone
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    // Display selected file name
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        fileChosen.textContent = fileInput.files[0].name;
+      } else {
+        fileChosen.textContent = 'No file selected';
+      }
+    });
+
+    // Drag and drop handlers
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+
+      if (e.dataTransfer.files.length > 0) {
+        fileInput.files = e.dataTransfer.files;
+        fileChosen.textContent = e.dataTransfer.files[0].name;
+      }
+    });
+  </script>
+
+  <script>
+  const maxSizeInMB = 100;
+  const maxSize = maxSizeInMB * 1024 * 1024; 
+
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (file) {
+      if (file.size > maxSize) {
+        alert(`File size exceeds ${maxSizeInMB} MB. Please choose a smaller file.`);
+        fileInput.value = ''; 
+        fileChosen.textContent = 'No file selected';
+        return;
+      }
+      fileChosen.textContent = file.name;
+    }
+  });
+</script>
+
 </body>
 </html>
