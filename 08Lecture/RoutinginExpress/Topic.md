@@ -18,7 +18,7 @@ app.get("/about", (req, res) => {<br>
 });<br>
 These routes respond to HTTP GET requests for / and /about.<br>
 
- 2. Route with URL Parameters<br>
+2. Route with URL Parameters<br>
 
 app.get("/user/:userId", (req, res) => {<br>
   const id = req.params.userId;<br>
@@ -41,7 +41,7 @@ app.get("/product/:category/:productID", (req, res) => {<br>
 http://localhost:3000/product/electronics/123<br>
 🧾 Output: category:electronics,product id:123<br>
 
- 4. Route with Query Parameters <br>
+4. Route with Query Parameters <br>
 
 app.get(`/search`, (req, res) => {<br>
   const name = req.query.name;<br>
