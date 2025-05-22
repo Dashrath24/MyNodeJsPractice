@@ -1,12 +1,12 @@
 #  Node.js Basic Math Module Project
 * Project Overview
-This is a simple Node.js project designed to demonstrate how to organize and use modules. It covers:
+>This is a simple Node.js project designed to demonstrate how to organize and use modules. It covers:
 
-How to create and export functions in separate files.
+1. How to create and export functions in separate files.
 
-How to import and use these functions in your main application file.
+2. How to import and use these functions in your main application file.
 
-Basic arithmetic operations implemented as reusable functions.
+3. Basic arithmetic operations implemented as reusable functions.
 ------------------------------------------------------------------------------------
 # Folder Structure
 project-root
@@ -16,33 +16,33 @@ project-root
 └── square.js      # Module exporting square function
 ---------------------------------------------------------------------------------------
 # What we do in this project
-Create separate modules:
+* Create separate modules:
 
-math.js exports two functions: add(a, b) and sub(a, b).
+>math.js exports two functions: add(a, b) and sub(a, b).
 
-square.js exports a function that returns the square of a number.
+>square.js exports a function that returns the square of a number.
 
-Use these modules in the main app:
+>Use these modules in the main app:
 
-app.js imports the add and sub functions from math.js.
+>app.js imports the add and sub functions from math.js.
 
-It also imports the square function from square.js.
+>It also imports the square function from square.js.
 
-Logs the results of these function calls to the console.
+>Logs the results of these function calls to the console.
 
-Understand module.exports and require:
+>Understand module.exports and require:
 
-How to export multiple functions from one file using an object.
+>How to export multiple functions from one file using an object.
 
-How to export a single function.
+>How to export a single function.
 
-How to import these exported functions into another file.
+>How to import these exported functions into another file.
 --------------------------------------------------------------------------------------------
 # How to Run the Project
-Make sure you have Node.js installed on your machine.
+1. Make sure you have Node.js installed on your machine.
 
-Navigate to the project folder in your terminal.
+2. Navigate to the project folder in your terminal.
 
-Run the command:
+3. Run the command:
 
-node app.js
+>node app.js
