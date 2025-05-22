@@ -1,31 +1,3 @@
-// const { log } = require("console");
-// const fs = require("fs");
-
-// const boiler = `<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//     <meta charset="UTF-8">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <title>Document</title>
-// </head>
-// <body>
-
-// </body>
-// </html>`;
-// fs.writeFile("./index.html", boiler, (err) => {
-//   console.log(err);
-// });
-// fs.writeFile("./about.html", boiler, (err) => {
-//   console.log(err);
-// });
-// fs.writeFile("./404.html", boiler, (err) => {
-//   console.log(err);
-// });
-
-// fs.writeFile("./data.txt", "here data print", (err) => {
-//       console.log(err);
-//     });
-
 const http = require("http");
 const { log } = require("util");
 const fs = require("fs");
