@@ -6,7 +6,7 @@ Routing in Express.js is the mechanism that maps incoming HTTP requests to speci
 ✅ Install Express:<br>
 npm install express<br>
 
-# 🧭 Route Summary<br>
+# 🧭 Route Summary
 1. Basic GET Routes
 
 app.get("/", (req, res) => {<br>
@@ -16,8 +16,7 @@ app.get("/", (req, res) => {<br>
 app.get("/about", (req, res) => {<br>
   res.send("heelo,About");<br>
 });<br>
-These routes respond to HTTP GET requests for / and /about.<br>
-
+These routes respond to HTTP GET requests for / and /about.
 2. Route with URL Parameters<br>
 
 app.get("/user/:userId", (req, res) => {<br>
@@ -39,7 +38,7 @@ app.get("/product/:category/:productID", (req, res) => {<br>
 
 # ✅ Example:
 http://localhost:3000/product/electronics/123<br>
-🧾 Output: category:electronics,product id:123<br>
+🧾 Output: category:electronics,product id:123
 
 4. Route with Query Parameters <br>
 
@@ -51,7 +50,7 @@ app.get(`/search`, (req, res) => {<br>
 
 # ✅ Example:
 http://localhost:3000/search?name=rahul&type=male<br>
-🧾 Output: serching for :rahul,in categpry:male<br>
+🧾 Output: serching for :rahul,in categpry:male
 
 5. POST Request<br>
 app.post("/contact", (req, res) => {<br>
