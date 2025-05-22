@@ -26,32 +26,32 @@ app.get("/", (req, res) => {<br>
 });<br>
 
 # ✅ About Route:
-app.get("/about", (req, res) => {
-  res.render("about", {
-    compnayName: "Frameboxx IT",
-    description: "We are Learning node js",
-  });
-});
+app.get("/about", (req, res) => {<br>
+  res.render("about", {<br>
+    compnayName: "Frameboxx IT",<br>
+    description: "We are Learning node js",<br>
+  });<br>
+});<br>
 
 # ✅ Services Route:
-app.get("/services", (req, res) => {
-  const services = [
-    "Web Devlopment",
-    "MERN Stack",
-    "Python",
-    "Java",
-    "Testing",
+app.get("/services", (req, res) => {<br>
+  const services = [<br>
+    "Web Devlopment",<br>
+    "MERN Stack",<br>
+    "Python",<br>
+    "Java",<br>
+    "Testing",<br>
   ];
-  res.render("services", { services });
-});
+  res.render("services", { services });<br>
+});<br>
 
 # ✨ Writing EJS Templates
 >EJS files are HTML files with embedded JavaScript code using special tags:
 
-🔸 Tags in EJS:
-Syntax	Description
-<%= %>	Output the value (escaped)
-<%- %>	Output raw HTML (unescaped)
-<% %>	Run JavaScript logic (no output)
-<% for (...) { %>	Start loop
-<% } %>	End logic block
+🔸 Tags in EJS:<br>
+Syntax	Description<br>
+<%= %>	Output the value (escaped)<br>
+<%- %>	Output raw HTML (unescaped)<br>
+<% %>	Run JavaScript logic (no output)<br>
+<% for (...) { %>	Start loop<br>
+<% } %>	End logic block<br>
