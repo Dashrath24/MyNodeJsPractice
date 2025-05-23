@@ -25,35 +25,35 @@ npm install express
 🧠 Application Logic
 🔸 Initial Data
 
-<code>let students = [
+<pre>let students = [
   { id: 1, name: "Rahul", gender: "Male", age: 10 },
   { id: 2, name: "Krish", gender: "female", age: 20 },
-];<code>
+];<pre>
 
 🔄 Routes Overview
 🔹 Home Redirect
 
-<code>app.get("/", (req, res) => {
+<pre>app.get("/", (req, res) => {
   res.redirect("/students");
-});<code>
+});<pre>
 
 📋 1. Read - View All Students
 
-<code>app.get("/students", (req, res) => {
+<pre>app.get("/students", (req, res) => {
   res.render("home", { students });
-});<code>
+});<pre>
 Loads the home.ejs template
 Displays all students
 
 ➕ 2. Create - Add New Student
 📄 Show Form
 
-<code>app.get("/students/new", (req, res) => {
+<pre>app.get("/students/new", (req, res) => {
   res.render("new");
-});<code>
+});<pre>
 ✅ Handle Submission
 
-<code>app.post("/students", (req, res) => {
+<pre>app.post("/students", (req, res) => {
   const newStudent = {
     id: students.length ? students[students.length - 1].id + 1 : 1,
     name: req.body.name,
@@ -62,30 +62,30 @@ Displays all students
   };
   students.push(newStudent);
   res.redirect("/students");
-});<code>
+});<pre>
 
 ✏️ 3. Update - Edit Student
 📄 Show Form
 
-<code>app.get("/students/:id/edit", (req, res) => {
+<pre>app.get("/students/:id/edit", (req, res) => {
   const student = students.find((s) => s.id == req.params.id);
   res.render("edit", { student });
-});<code>
+});<pre>
 🔁 Handle Update
 
-<code>app.post("/students/:id/update", (req, res) => {
+<pre>app.post("/students/:id/update", (req, res) => {
   const student = students.find((s) => s.id == req.params.id);
   student.name = req.body.name;
   student.age = req.body.age;
   student.gender = req.body.gender;
   res.redirect("/students");
-});<code>
+});<pre>
 ❌ 4. Delete - Remove Student
 
-<code>app.post("/students/:id/delete", (req, res) => {
+<pre>app.post("/students/:id/delete", (req, res) => {
   students = students.filter((item) => item.id != req.params.id);
   res.redirect("/students");
-});<code>
+});<pre>
 🖼️ View Templates (EJS)
 🏠 home.ejs
 Displays list of students with "Edit" and "Delete" buttons.
@@ -98,7 +98,7 @@ Pre-filled form for editing an existing student.
 
 # 📡 Start the Server
 
-<code>app.listen(PORT, () => {
+<pre>app.listen(PORT, () => {
   console.log("Server started...");
-});<code>
+});<pre>
 ✅ Visit: http://localhost:9000
