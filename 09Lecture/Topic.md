@@ -1,104 +1,117 @@
 # CRUD Operations with Express.js and EJS
-📁 Folder Structure
 
-Crud/<br>
-│<br>
-├── public/ <br>
-    ├── style.css          # Static assets (CSS, JS, images)<br>
-├── views/                 # EJS templates<br>
-│   ├── home.ejs           # Home page showing student list<br>
-│   ├── new.ejs            # Form to add new student<br>
-│   └── edit.ejs           # Form to edit existing student<br>
-│<br>
-├── index.js               # Main server file<br>
-├── package.json           # Project metadata and dependencies<br>
-├── package-lock.json<br>
-├── .gitignore<br>
-├── explaination.md<br>
-└── Topic.md<br>
+A basic student management system using Express.js and EJS view templates.
 
-# 🚀 Project Setup
-✅ Install Dependencies
+---
+
+## 📁 Folder Structure
+
+Crud/
+│
+├── public/ # Static assets (CSS, JS, images)
+├── views/ # EJS templates
+│ ├── home.ejs # Lists all students
+│ ├── new.ejs # Form to add new student
+│ └── edit.ejs # Form to edit existing student
+│
+├── index.js # Main Express server
+├── package.json
+├── .gitignore
+├── explaination.md
+└── Topic.md
+
+yaml
+Copy
+Edit
+
+---
+
+## 📦 Setup Instructions
+
+```bash
 npm init -y
-npm install express 
+npm install express ejs
+🧠 Application Overview
+🔹 Sample Student Data
 
-🧠 Application Logic
-🔸 [!Initial Data]
-```
-  let students = [
+let students = [
   { id: 1, name: "Rahul", gender: "Male", age: 10 },
-  { id: 2, name: "Krish", gender: "female", age: 20 },
-];  ```
+  { id: 2, name: "Krish", gender: "Female", age: 20 },
+];
+🚦 Routes Breakdown
+1. 🏠 Home (Redirect)
 
-🔄 Routes Overview
-🔹 Home Redirect
-
-  app.get("/", (req, res) => {
+app.get("/", (req, res) => {
   res.redirect("/students");
-});  
+});
+2. 📋 View All Students
 
-📋 1. Read - View All Students
-
-  app.get("/students", (req, res) => {
+app.get("/students", (req, res) => {
   res.render("home", { students });
-});  
-Loads the home.ejs template
-Displays all students
+});
+3. ➕ Add New Student
+🔹 Show Add Form
 
-➕ 2. Create - Add New Student
-📄 Show Form
-
-  app.get("/students/new", (req, res) => {
+app.get("/students/new", (req, res) => {
   res.render("new");
-});  
-✅ Handle Submission
+});
+🔹 Handle Form Submission
 
-  app.post("/students", (req, res) => {
+app.post("/students", (req, res) => {
   const newStudent = {
     id: students.length ? students[students.length - 1].id + 1 : 1,
     name: req.body.name,
     age: req.body.age,
-    gender: req.body.gender
+    gender: req.body.gender,
   };
   students.push(newStudent);
   res.redirect("/students");
-});  
+});
+4. 📝 Edit Student
+🔹 Show Edit Form
 
-✏️ 3. Update - Edit Student
-📄 Show Form
-
-  app.get("/students/:id/edit", (req, res) => {
+app.get("/students/:id/edit", (req, res) => {
   const student = students.find((s) => s.id == req.params.id);
   res.render("edit", { student });
-});  
-🔁 Handle Update
+});
+🔹 Handle Update
 
-  app.post("/students/:id/update", (req, res) => {
+app.post("/students/:id/update", (req, res) => {
   const student = students.find((s) => s.id == req.params.id);
   student.name = req.body.name;
   student.age = req.body.age;
   student.gender = req.body.gender;
   res.redirect("/students");
-});  
-❌ 4. Delete - Remove Student
+});
+5. ❌ Delete Student
 
-  app.post("/students/:id/delete", (req, res) => {
+app.post("/students/:id/delete", (req, res) => {
   students = students.filter((item) => item.id != req.params.id);
   res.redirect("/students");
-});  
-🖼️ View Templates (EJS)
-🏠 home.ejs
-Displays list of students with "Edit" and "Delete" buttons.
+});
+🖼️ EJS View Templates Overview
+home.ejs
+Lists all students
 
-➕ new.ejs
-Form for adding a new student (fields: name, age, gender).
+Includes "Edit" and "Delete" buttons
 
-📝 edit.ejs
-Pre-filled form for editing an existing student.
+new.ejs
+Form to add a new student
 
-# 📡 Start the Server
+Fields: name, age, gender
 
-  app.listen(PORT, () => {
+edit.ejs
+Pre-filled form to update an existing student
+
+🧰 Middleware Setup
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+📡 Starting the Server
+
+app.listen(9000, () => {
   console.log("Server started...");
-});  
-✅ Visit: http://localhost:9000
+});
+➡️ Open browser: http://localhost:9000
+
