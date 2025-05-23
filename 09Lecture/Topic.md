@@ -8,36 +8,35 @@ A basic student management system using Express.js and EJS view templates.
 
 Crud/
 │
-├── public/ # Static assets (CSS, JS, images)
-├── views/ # EJS templates
-│ ├── home.ejs # Lists all students
-│ ├── new.ejs # Form to add new student
-│ └── edit.ejs # Form to edit existing student
-│
-├── index.js # Main Express server
-├── package.json
-├── .gitignore
-├── explaination.md
-└── Topic.md
+p>├── public/ # Static assets (CSS, JS, images)<br>
+├── views/ # EJS templates<br>
+│ ├── home.ejs # Lists all students<br>
+│ ├── new.ejs # Form to add new student<br>
+│ └── edit.ejs # Form to edit existing student<br>
+│<br>
+├── index.js # Main Express server<br>
+├── package.json<br>
+├── .gitignore<br>
+├── explaination.md<br>
+└── Topic.md<br>
 
-yaml
-Copy
-Edit
 
 ---
 
 ## 📦 Setup Instructions
 
-```bash
+
 npm init -y
 npm install express ejs
-🧠 Application Overview
-🔹 Sample Student Data
 
-let students = [
+# 🧠 Application Overview
+* 🔹 Sample Student Data
+<pre>
+
+ ```bash let students = [
   { id: 1, name: "Rahul", gender: "Male", age: 10 },
   { id: 2, name: "Krish", gender: "Female", age: 20 },
-];
+]; ``` <pre>>
 🚦 Routes Breakdown
 1. 🏠 Home (Redirect)
 
