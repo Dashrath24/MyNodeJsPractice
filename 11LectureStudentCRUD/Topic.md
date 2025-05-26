@@ -22,9 +22,9 @@
 └── Topic.md            # Project explanation (this file)<br>
 
 # 🚀 Features
-Add new student
+1. Add new student
 
-View all students
+2. View all students
 
 Edit existing student details
 
