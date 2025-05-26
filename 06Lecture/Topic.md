@@ -14,25 +14,14 @@
 
 # 🧱 Key Concepts Covered
 ✅ 1. Serving HTML Pages
-Using res.sendFile() to serve static HTML files:
+Using res.sendFile() to serve static HTML 
 
-js
-
-Copy
-
-Edit
 res.sendFile(path.join(__dirname, "../05Lecture", "index.html"));
 
 ✅ 2. Route Parameters
 
 You can access dynamic parts of the URL using req.params:
 
-js
-
-Copy
-
-
-Edit
 
 app.get("/user/:name", (req, res) => {
 
@@ -52,11 +41,6 @@ http://localhost:7000/user/Dashrath
 
 Using req.query to extract parameters from the URL query string.
 
-js
-
-Copy
-
-Edit
 
 app.get("/search", (req, res) => {
 
