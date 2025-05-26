@@ -26,11 +26,11 @@
 
 2. View all students
 
-Edit existing student details
+3. Edit existing student details
 
-Delete student record
+4. Delete student record
 
-Form validation and styling
+5. Form validation and styling
 
 🛠 Tech Stack
 Node.js
