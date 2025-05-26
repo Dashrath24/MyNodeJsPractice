@@ -43,17 +43,17 @@
 
 > HTML/CSS
 
-▶️ How to Run
-Clone the repository
-git clone <repo-url>
+# ▶️ How to Run
+> Clone the repository
+> git clone 
 
-Install dependencies
-npm install
+> Install dependencies
+> npm install
 
-Start MongoDB (make sure MongoDB is running locally)
+> Start MongoDB (make sure MongoDB is running locally)
 
-Run the app
-node index.js
+> Run the app
+> node index.js
 
-Visit in browser
+* Visit in browser
 http://localhost:3000
