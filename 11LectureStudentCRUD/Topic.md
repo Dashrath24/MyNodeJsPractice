@@ -32,16 +32,16 @@
 
 5. Form validation and styling
 
-🛠 Tech Stack
-Node.js
+# 🛠 Tech Stack
+> Node.js
 
-Express.js
+> Express.js
 
-MongoDB + Mongoose
+> MongoDB + Mongoose
 
-EJS
+> EJS
 
-HTML/CSS
+> HTML/CSS
 
 ▶️ How to Run
 Clone the repository
