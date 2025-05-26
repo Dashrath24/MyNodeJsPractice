@@ -5,7 +5,7 @@
 
 11LectureStudentCRUD/<br>
 │<br>
-├── models/  # Mongoose schema for Student
+├── models/  # Mongoose schema for Student<br>
 │   └── Student.js<br>
 │
 ├── views/              # EJS templates for frontend rendering <br>
@@ -20,3 +20,40 @@
 ├── package.json        # Project metadata and dependencies<br>
 ├── .gitignore          # Files to ignore in Git<br>
 └── Topic.md            # Project explanation (this file)<br>
+
+# 🚀 Features
+Add new student
+
+View all students
+
+Edit existing student details
+
+Delete student record
+
+Form validation and styling
+
+🛠 Tech Stack
+Node.js
+
+Express.js
+
+MongoDB + Mongoose
+
+EJS
+
+HTML/CSS
+
+▶️ How to Run
+Clone the repository
+git clone <repo-url>
+
+Install dependencies
+npm install
+
+Start MongoDB (make sure MongoDB is running locally)
+
+Run the app
+node index.js
+
+Visit in browser
+http://localhost:3000
