@@ -1,48 +1,105 @@
-#  Node.js Basic Math Module Project
-* Project Overview
->This is a simple Node.js project designed to demonstrate how to organize and use modules. It covers:
+# 📒 Node.js Basic Math Module Project Documentation (`topic.md`)
 
-1. How to create and export functions in separate files.
+---
 
-2. How to import and use these functions in your main application file.
+## ✅ Technologies Used
 
-3. Basic arithmetic operations implemented as reusable functions.
-------------------------------------------------------------------------------------
-# Folder Structure
-project-root
-│
-├── app.js         # Main entry point of the application
-├── math.js        # Module exporting add and sub functions
-└── square.js      # Module exporting square function
----------------------------------------------------------------------------------------
-# What we do in this project
-* Create separate modules:
+- **Node.js** — JavaScript runtime environment for backend
+- **CommonJS Modules** — Using `module.exports` and `require` for modular code
 
->math.js exports two functions: add(a, b) and sub(a, b).
+---
 
->square.js exports a function that returns the square of a number.
+## 🧱 Project Structure
 
->Use these modules in the main app:
+```
+project-root/
+├── app.js        # Main entry point of the application
+├── math.js       # Module exporting add and sub functions
+└── square.js     # Module exporting square function
+```
 
->app.js imports the add and sub functions from math.js.
+---
 
->It also imports the square function from square.js.
+## 🧩 Modules Overview
 
->Logs the results of these function calls to the console.
+### math.js
 
->Understand module.exports and require:
+- Exports two functions:  
+  - `add(a, b)` — Returns the sum of two numbers  
+  - `sub(a, b)` — Returns the difference between two numbers
 
->How to export multiple functions from one file using an object.
+```js
+// math.js
+function add(a, b) {
+  return a + b;
+}
 
->How to export a single function.
+function sub(a, b) {
+  return a - b;
+}
 
->How to import these exported functions into another file.
---------------------------------------------------------------------------------------------
-# How to Run the Project
-1. Make sure you have Node.js installed on your machine.
+module.exports = { add, sub };
+```
 
-2. Navigate to the project folder in your terminal.
+### square.js
 
-3. Run the command:
+- Exports a single function:  
+  - `square(x)` — Returns the square of a number
 
->node app.js
+```js
+// square.js
+function square(x) {
+  return x * x;
+}
+
+module.exports = square;
+```
+
+---
+
+## 🌐 Main Application: app.js
+
+- Imports functions from `math.js` and `square.js`
+- Calls the functions with sample inputs
+- Logs the results to the console
+
+```js
+const { add, sub } = require('./math');
+const square = require('./square');
+
+console.log('Add: ', add(5, 3));        // Output: 8
+console.log('Subtract: ', sub(5, 3));   // Output: 2
+console.log('Square: ', square(5));     // Output: 25
+```
+
+---
+
+## ⚙️ Running the Project
+
+1. Make sure Node.js is installed on your machine.
+2. Navigate to the project directory in your terminal.
+3. Run the app with the command:
+
+```bash
+node app.js
+```
+
+---
+
+## 🧪 Project Summary
+
+| Feature          | File      | Description                                |
+|------------------|-----------|--------------------------------------------|
+| Addition         | `math.js` | Function to add two numbers                |
+| Subtraction      | `math.js` | Function to subtract two numbers           |
+| Square Calculation | `square.js` | Function to calculate the square of a number |
+| App Execution    | `app.js`  | Imports and uses math functions, logs results |
+
+---
+
+## 🛡️ Optional Enhancements
+
+- Add input validation and error handling
+- Write unit tests for each function
+- Expand module with more math operations (multiply, divide, etc.)
+- Use ES Modules syntax (`import` / `export`) if using newer Node.js versions
