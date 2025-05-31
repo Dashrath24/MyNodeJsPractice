@@ -1,0 +1,3 @@
+[submodule "12LectureContactManagerApp"]
+	path = 12LectureContactManagerApp
+	url = https://github.com/dashrathbhil/contact-manager-nodejs-mongodb.git
